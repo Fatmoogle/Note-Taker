@@ -12,20 +12,48 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-// Make the server listen for client requests
-app.listen(PORT, () => {
-    console.log(`Server is listening on PORT: ${PORT} `)
+// Connecting to the Index.js file
+app.get("/assets/js/index.js", function(req, res) {
+    res.sendFile(path.join(__dirname, "/public/assets/js/index.js"));
 });
+
+// Connecting to the style.css file
+app.get("/assets/css/styles.css", function(req, res) {
+    res.sendFile(path.join(__dirname, "/public/assets/css/styles.css"));
+});
+
 
 app.get("/api/notes", (req, res) => {
     fs.readFile(`${__dirname}/db/db.json`, (err, data) => {
         if (err) {
             throw err;
         }else {
-            console.log(data);
+            console.log("This is the data: " + data);
             res.end(data);
         };
     });
+});
+
+
+//   * POST `/api/notes` - Should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
+app.post("/api/notes", (req, res) => {
+    const userNote = req.body;
+    console.log (userNote);
+
+    fs.writeFile(`${__dirname}/db/db.json`, JSON.stringify(userNote), (err) => {
+        if(err) {
+            console.log("There was an error: " + err);
+        }else {
+            res.json(userNote);
+        }
+    })
+});
+
+app.delete
+
+// Sends the client the Notes.html file upon request
+app.get("/notes", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
 // Sends the client the Index.html file upon request
@@ -33,28 +61,30 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/index.html"))
 });
 
-// Sends the client the Notes.html file upon request
-app.get("/notes", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/notes.html"))
+// Make the server listen for client requests
+app.listen(PORT, () => {
+    console.log(`Server is listening on PORT: ${PORT} `)
 });
 
 
 
 
 
-// * The following HTML routes should be created:
-
-//   * GET `/notes` - Should return the `notes.html` file.
-
-//   * GET `*` - Should return the `index.html` file
-
-
-// // Basic route that sends the user first to the AJAX Page
-// app.get("/", function(req, res) {
-//     // res.send("Welcome to the Star Wars Page!")
-//     res.sendFile(path.join(__dirname, "view.html"));
+// Create New Characters - takes in JSON input
+// app.post("/api/characters", function(req, res) {
+//     // req.body hosts is equal to the JSON post sent from the user
+//     // This works because of our body parsing middleware
+//     var newcharacter = req.body;
+  
+//     console.log(newcharacter);
+  
+//     // We then add the json the user sent to the character array
+//     characters.push(newcharacter);
+  
+//     // We then display the JSON to the users
+//     res.json(newcharacter);
 //   });
-
+  
 
 
 // * The application should have a `db.json` file on the backend that will be used to store and retrieve notes using the `fs` module.
