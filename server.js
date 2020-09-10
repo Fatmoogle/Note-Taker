@@ -1,7 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 
-const PORT = 8080;
+const PORT = process.env.PORT || 3001;
 
 // Creates a server using Express
 const app = express();
