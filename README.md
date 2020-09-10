@@ -1,83 +1,78 @@
 # Note-Taker
 Application designed to write, save, and delete notes.
 
-# Unit 11 Express Homework: Note Taker
+![](Assets/Images/website.PNG)
 
-## Description
+![](Assets/Images/listexample.PNG)
 
-Create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.
+![](Assets/Images/listexample2.PNG)
 
-* The application frontend has already been created, it's your job to build the backend and connect the two.
 
-* The following HTML routes should be created:
+## Description 
 
-  * GET `/notes` - Should return the `notes.html` file.
+This application is designed to let users write their own notes in the browser, save, and also delete them. 
 
-  * GET `*` - Should return the `index.html` file
+For this assignment, we were tasked with creating a local server using the Express package. With Express, we could make the PORT number and we could make GET and POST requests to the server in order to update the webpage. 
 
-* The application should have a `db.json` file on the backend that will be used to store and retrieve notes using the `fs` module.
+![](Assets/Images/dependencies.PNG)
 
-* The following API routes should be created:
+![](Assets/Images/delete.PNG)
 
-  * GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
 
-  * POST `/api/notes` - Should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
+## Table of Contents 
 
-  * DELETE `/api/notes/:id` - Should receive a query parameter containing the id of a note to delete. This means you'll need to find a way to give each note a unique `id` when it's saved. In order to delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
 
-## User Story
+* [Description](#Description)
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [Credits](#Credits)
+* [License](#License)
+* [Contributions](#Contributions)
+* [Tests](#Tests)
+* [Questions](*Questions)
 
-AS A user, I want to be able to write and save notes
 
-I WANT to be able to delete notes I've written before
+## Installation
 
-SO THAT I can organize my thoughts and keep track of tasks I need to complete
+In order to install this project, simply type in "npm install" within the terminal so you can install the needed dependencies.
 
-## Business Context
 
-For users that need to keep track of a lot of information, it's easy to forget or be unable to recall something important. Being able to take persistent notes allows users to have written information available when needed.
+## Usage
 
-## Acceptance Criteria
+In order to use the project, you can type "nodemon server.js" within the terminal, and then you can navigate to the local host URL port. 
 
-Application should allow users to create and save notes.
 
-Application should allow users to view previously saved notes.
+## Credits
 
-Application should allow users to delete previously saved notes.
+Me! Alex Varela.
 
-## Deploying the App
 
-You will not be able to deploy your server side code on GitHub pages. This app should be deployed on Heroku. Carefully follow the [Heroku Guide](../04-Supplemental/HerokuGuide.md) for getting your app deployed on Heroku.
+## License
 
-- - -
+MIT
 
-## Commit Early and Often
 
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
+## Contributing
 
-* Your commit history is a signal to employers that you are actively working on projects and learning new skills.
+The code here is free for you to use for your own purposes and you are free to edit it as you see fit.
 
-* Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
 
-Follow these guidelines for committing:
+## Tests
 
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
+No tests were created for this application.
 
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
 
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
+## Questions
 
-* Test your application before you commit to ensure functionality at every step in the development process.
+You may contact me through email or my GitHub account.
 
-We would like you to have well over 200 commits by graduation, so commit early and often!
+Reach out to me!
 
-## Submission on BCS
+Email: alexvar93@gmail.com
+GitHub Profile: Fatmoogle || https://github.com/Fatmoogle 
 
-You are required to submit the following:
 
-* The URL of the deployed application. This should be the link to the url provided by Heroku. Be sure not to submit a link to the Heroku dashboard.
 
-* The URL of the GitHub repository
-
-- - -
+---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+
