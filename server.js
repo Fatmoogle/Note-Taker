@@ -79,7 +79,7 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/index.html"))
 });
 
-// Sends the client the Index.html file upon request
+// Sends the client the Index.html file upon request (for heroku)
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/index.html"))
 });
