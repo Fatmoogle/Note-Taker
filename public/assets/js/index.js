@@ -103,6 +103,10 @@ const handleRenderSaveBtn = function () {
 
 // Render's the list of note titles
 const renderNoteList = (notes) => {
+  notes = JSON.parse(notes);
+  let idN = 0;
+  notes.forEach(i => i.id = idN++);
+  console.log(idN);
   $noteList.empty();
 
   const noteListItems = [];
