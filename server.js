@@ -79,6 +79,10 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/index.html"))
 });
 
+// Sends the client the Index.html file upon request
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/index.html"))
+});
 // Make the server listen for client requests
 app.listen(PORT, () => {
     console.log(`Server is listening on PORT: ${PORT} `)
